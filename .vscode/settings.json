@@ -10,7 +10,12 @@
   },
   "css.validate": false,
   "scss.validate": false,
-  "less.validate": false
+  "less.validate": false,
+
+  // disable the Docker DX high‐vuln warnings
+  "docker.advanced.diagnostics": {
+    "critical_high_vulnerabilities": false
+  }
 }
 
 
