@@ -1,0 +1,25 @@
+2025-06-17 12:59:55,189 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-17 12:59:55,468 [INFO] ✅ Login success for ID 1
+2025-06-17 13:00:03,178 [INFO] 🔄 Querying OpenAI for CV parsing…
+2025-06-17 13:00:37,446 [INFO] 🔁 Found existing person: Maria High
+2025-06-17 13:00:37,446 [INFO] 🔁 Linked person Maria High to document 5
+2025-06-17 13:00:37,461 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-17 13:00:37,461 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-17 13:00:37,465 [INFO] ➕ Added new certification | Person: Maria High | Key: ('Certified Moonlight Serenader', 'Outstanding Moo Projection')
+2025-06-17 13:00:37,466 [INFO] ➕ Added new award | Person: Maria High | Key: ('Farm Olympics Gold', 'Fence Jumping Pro')
+2025-06-17 13:00:37,477 [INFO] ✅ Finished parsing Document 5 for 1
+2025-06-17 13:00:37,478 [INFO] 📄 [PDF START] person_id=1 | doc_id=5 | by=system
+2025-06-17 13:00:37,533 [INFO] ✅ Visualization linked to document 5: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-17 13:00:37,533 [INFO] ✅ PDF visualization linked to document 5: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-17 13:00:37,533 [INFO] 📝 [PDF GENERATED] Person=Maria High | ID=1 | Path=C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf | by=system | at=2025-06-17T17:00:37.533649
+2025-06-17 13:00:37,539 [INFO] 🧮 Collected 15 timeline events for Maria High (1)
+2025-06-17 13:00:38,059 [INFO] 📸 Saved timeline image static/timelines\timeline_doc_5_20250617170037.png
+2025-06-17 13:00:38,064 [INFO] ✅ Visualization linked to document 5: static/timelines\timeline_doc_5_20250617170037.png
+2025-06-17 13:00:38,067 [INFO] 🎉 All steps done for Document 5
+2025-06-17 13:00:38,067 [INFO] 📄 [PDF START] person_id=1 | doc_id=5 | by=1
+2025-06-17 13:00:38,110 [INFO] ✅ Visualization linked to document 5: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-17 13:00:38,110 [INFO] ✅ PDF visualization linked to document 5: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-17 13:00:38,110 [INFO] 📝 [PDF GENERATED] Person=Maria High | ID=1 | Path=C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf | by=1 | at=2025-06-17T17:00:38.110304
+2025-06-17 13:00:38,116 [INFO] 🧮 Collected 15 timeline events for Maria High (1)
+2025-06-17 13:00:38,536 [INFO] 📸 Saved timeline image static/timelines\timeline_doc_5_20250617170038.png
+2025-06-17 13:00:38,544 [INFO] ✅ Visualization linked to document 5: static/timelines\timeline_doc_5_20250617170038.png

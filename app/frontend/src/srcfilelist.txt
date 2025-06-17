@@ -1,0 +1,22 @@
+Folder PATH listing for volume Acer
+Volume serial number is 
+C:.
+|   App.css
+|   App.tsx
+|   index.css
+|   main.tsx
+|   srcfilelist.txt
+|   vite-env.d.ts
+|   
++---assets
+|       react.svg
+|       
++---components
+\---pages
+        Dashboard.tsx
+        Landing.tsx
+        Login.tsx
+        Register.tsx
+
+
+        

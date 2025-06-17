@@ -1,0 +1,375 @@
+2025-06-16 04:09:14,007 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 04:09:14,308 [INFO] ✅ Login success for ID 6 | maria@high.com
+2025-06-16 04:14:58,492 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 04:14:58,702 [INFO] ✅ Login success for ID 6 | maria@high.com
+2025-06-16 04:17:22,404 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 04:17:22,616 [INFO] ✅ Login success for ID 6 | maria@high.com
+2025-06-16 04:19:45,770 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 04:19:46,019 [INFO] ✅ Login success for ID 6 | maria@high.com
+2025-06-16 04:26:34,435 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 04:26:34,688 [INFO] ✅ Login success for ID 6 | maria@high.com
+2025-06-16 04:27:04,842 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 04:27:05,071 [INFO] ✅ Login success for ID 6 | maria@high.com
+2025-06-16 04:30:02,076 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 04:30:02,332 [INFO] ✅ Login success for ID 6 | maria@high.com
+2025-06-16 04:34:13,849 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 04:34:14,101 [INFO] ✅ Login success for ID 6
+2025-06-16 04:37:03,950 [INFO] 🔐 Login attempt for dgswrg@dsgswg.com
+2025-06-16 04:37:03,950 [WARNING] ❌ Login failed for dgswrg@dsgswg.com
+2025-06-16 05:18:02,415 [INFO] 🔐 Registration attempt for helena@high.com
+2025-06-16 05:18:02,667 [INFO] ✅ Registration successful: 7
+2025-06-16 05:19:01,722 [INFO] 🔐 Login attempt for helena@high.com
+2025-06-16 05:19:01,922 [INFO] ✅ Login success for ID 7
+2025-06-16 05:25:53,513 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 05:25:53,734 [INFO] ✅ Login success for ID 6
+2025-06-16 05:28:33,035 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 05:28:33,237 [INFO] ✅ Login success for ID 6
+2025-06-16 05:30:08,561 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 05:30:08,808 [INFO] ✅ Login success for ID 6
+2025-06-16 05:31:54,115 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 05:31:54,322 [INFO] ✅ Login success for ID 6
+2025-06-16 05:57:36,240 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 05:57:36,480 [INFO] ✅ Login success for ID 6
+2025-06-16 06:44:35,509 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 06:44:35,881 [INFO] ✅ Login success for ID 6
+2025-06-16 06:51:09,937 [INFO] 🔄 Querying OpenAI...
+2025-06-16 06:51:51,653 [ERROR] ❌ Error: (sqlite3.OperationalError) no such table: documents
+[SQL: SELECT documents.id AS documents_id, documents.title AS documents_title, documents.source_filename AS documents_source_filename, documents.uploaded_by AS documents_uploaded_by, documents.upload_time AS documents_upload_time, documents.status AS documents_status, documents.cluster_id AS documents_cluster_id, documents.llm_prompt AS documents_llm_prompt, documents.llm_response AS documents_llm_response 
+FROM documents 
+WHERE documents.source_filename = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('C:\\Users\\chasp\\Documents\\WORK\\SKILL SCANNER\\SKSC_Prototype\\static\\uploads\\4_250616_Test_CV_Maria_High.docx', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-16 07:15:33,008 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 07:15:34,113 [INFO] ✅ Login success for ID 6
+2025-06-16 07:15:42,833 [INFO] 🔄 Querying OpenAI...
+2025-06-16 07:16:26,462 [INFO] 📄 Created new Document: 5_250616_Test_CV_Maria_High.docx
+2025-06-16 07:16:26,467 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 07:16:26,467 [INFO] 📄 Found existing Document: 5_250616_Test_CV_Maria_High.docx
+2025-06-16 07:16:26,467 [INFO] ✅ Added Person: Maria High
+2025-06-16 07:16:26,475 [INFO] ➕ Added new education | Person: Maria High | Key: ('Major', 'Advanced Grass Economics', 'Moo-versity of Agricultural Sciences')
+2025-06-16 07:16:26,483 [INFO] ➕ Added new education | Person: Maria High | Key: ('Diploma in Dairy Production', None, 'Udderly Brilliant Academy')
+2025-06-16 07:16:26,485 [INFO] ➕ Added new experience | Person: Maria High | Key: ('Lead Grazing Strategist', 'Green Pastures Cooperative', datetime.date(2025, 1, 1))
+2025-06-16 07:16:26,491 [INFO] ➕ Added new experience | Person: Maria High | Key: ('Green Pastures Cooperative', 'Green Pastures Cooperative', datetime.date(2005, 1, 1))
+2025-06-16 07:16:26,493 [INFO] ➕ Added new experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 07:16:26,493 [INFO] ➕ Added new experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 07:16:26,631 [INFO] ➕ Added new language | Person: Maria High
+2025-06-16 07:16:26,631 [INFO] ➕ Added new language | Person: Maria High
+2025-06-16 07:16:26,631 [INFO] ➕ Added new language | Person: Maria High
+2025-06-16 07:16:26,646 [INFO] ➕ Added new certification | Person: Maria High | Key: ('Fence Jumping Pro', 'Farm Olympics')
+2025-06-16 07:16:26,647 [INFO] ➕ Added new certification | Person: Maria High | Key: ('Precision Grazing™ and Tractor Evasion Tactics', 'Udderly Brilliant Academy')
+2025-06-16 07:16:26,647 [INFO] ➕ Added new award | Person: Maria High | Key: ('Golden Nose', 'Farmers’ Secret Stash Task Force')
+2025-06-16 07:16:26,647 [INFO] ➕ Added new award | Person: Maria High | Key: ('Farm Olympics Gold', 'Farm Olympics')
+2025-06-16 07:16:26,712 [INFO] 📄 [PDF START] ID: 6 | TriggeredBy: system
+2025-06-16 07:16:26,812 [INFO] 📝 [PDF GENERATED] Person: Maria High | ID: 6 | Path: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf | TriggeredBy: system | Timestamp: 2025-06-16T11:16:26.812891
+2025-06-16 07:16:26,812 [INFO] ✅ CV parsed, PDF generated and saved to: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf for Maria High
+2025-06-16 07:24:35,567 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 07:24:35,966 [INFO] ✅ Login success for ID 6
+2025-06-16 07:24:42,550 [INFO] 🔄 Querying OpenAI...
+2025-06-16 07:25:24,006 [INFO] 📄 Created new Document: 7_250616_Test_CV_Maria_High.docx
+2025-06-16 07:25:24,013 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 07:25:24,015 [INFO] 📄 Found existing Document: 7_250616_Test_CV_Maria_High.docx
+2025-06-16 07:25:24,015 [INFO] ✅ Added Person: Maria High
+2025-06-16 07:25:24,021 [INFO] ➕ Added new education | Person: Maria High | Key: ('Diploma', 'Dairy Production', 'Udderly Brilliant Academy')
+2025-06-16 07:25:24,027 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Lead Grazing Strategist', 'Green Pastures Cooperative', datetime.date(2025, 1, 1))
+2025-06-16 07:25:24,027 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 07:25:24,027 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 07:25:24,039 [INFO] 🔁 Updated certification | Person: Maria High | Key: ('Fence Jumping Pro', 'Farm Olympics')
+2025-06-16 07:25:24,047 [INFO] 🔁 Updated award | Person: Maria High | Key: ('Golden Nose', 'Farmers’ Secret Stash Task Force')
+2025-06-16 07:25:24,092 [INFO] 📄 [PDF START] ID: 6 | TriggeredBy: system
+2025-06-16 07:25:24,170 [INFO] 📝 [PDF GENERATED] Person: Maria High | ID: 6 | Path: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf | TriggeredBy: system | Timestamp: 2025-06-16T11:25:24.170503
+2025-06-16 07:25:24,170 [INFO] ✅ CV parsed, PDF generated and saved to: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf for Maria High
+2025-06-16 07:33:45,737 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 07:33:46,146 [INFO] ✅ Login success for ID 6
+2025-06-16 07:37:00,463 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 07:37:01,561 [WARNING] ❌ Login failed for maria@high.com
+2025-06-16 07:37:18,562 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 07:37:19,003 [INFO] ✅ Login success for ID 6
+2025-06-16 07:40:53,926 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 07:40:54,282 [INFO] ✅ Login success for ID 6
+2025-06-16 07:43:11,709 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 07:43:12,795 [INFO] ✅ Login success for ID 6
+2025-06-16 07:46:57,955 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 07:46:59,040 [INFO] ✅ Login success for ID 6
+2025-06-16 07:51:05,191 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 07:51:05,628 [INFO] ✅ Login success for ID 6
+2025-06-16 08:06:24,850 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 08:06:25,907 [INFO] ✅ Login success for ID 6
+2025-06-16 08:06:36,068 [INFO] 🔄 Querying OpenAI...
+2025-06-16 08:07:20,883 [INFO] 📄 Created new Document: 6_250616_Test_CV_Maria_High.docx
+2025-06-16 08:07:20,887 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 08:07:20,887 [INFO] 📄 Found existing Document: 6_250616_Test_CV_Maria_High.docx
+2025-06-16 08:07:20,887 [INFO] ✅ Added Person: Maria High
+2025-06-16 08:07:20,892 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 08:07:20,894 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 08:07:20,895 [INFO] 🔁 Updated certification | Person: Maria High | Key: ('Fence Jumping Pro', 'Farm Olympics')
+2025-06-16 08:07:20,895 [INFO] ➕ Added new certification | Person: Maria High | Key: ('Certified Moonlight Serenader', 'Outstanding Moo Projection')
+2025-06-16 08:07:20,900 [INFO] ➕ Added new certification | Person: Maria High | Key: ('Precision Grazing™', 'Udderly Brilliant Academy')
+2025-06-16 08:07:20,900 [INFO] ➕ Added new certification | Person: Maria High | Key: ('Tractor Evasion Tactics', 'Udderly Brilliant Academy')
+2025-06-16 08:07:20,903 [INFO] 🔁 Updated award | Person: Maria High | Key: ('Golden Nose', 'Farmers’ Secret Stash Task Force')
+2025-06-16 08:07:20,925 [INFO] 📄 [PDF START] ID: 6 | TriggeredBy: system
+2025-06-16 08:07:20,966 [INFO] 📝 [PDF GENERATED] Person: Maria High | ID: 6 | Path: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf | TriggeredBy: system | Timestamp: 2025-06-16T12:07:20.966921
+2025-06-16 08:07:20,966 [INFO] ✅ CV parsed, PDF generated and saved to: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf for Maria High
+2025-06-16 09:15:08,945 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 09:15:09,203 [INFO] ✅ Login success for ID 6
+2025-06-16 09:15:14,903 [INFO] 🔄 Querying OpenAI...
+2025-06-16 09:15:56,181 [INFO] 📄 Found existing Document: 6_250616_Test_CV_Maria_High.docx
+2025-06-16 09:15:56,181 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 09:15:56,181 [INFO] 📄 Found existing Document: 6_250616_Test_CV_Maria_High.docx
+2025-06-16 09:15:56,181 [INFO] ✅ Added Person: Maria High
+2025-06-16 09:15:56,199 [INFO] 📄 [PDF START] ID: 6 | TriggeredBy: system
+2025-06-16 09:15:56,225 [INFO] 📝 [PDF GENERATED] Person: Maria High | ID: 6 | Path: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf | TriggeredBy: system | Timestamp: 2025-06-16T13:15:56.225679
+2025-06-16 09:15:56,225 [INFO] ✅ CV parsed, PDF generated and saved to: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf for Maria High
+2025-06-16 12:37:15,534 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 12:37:15,788 [INFO] ✅ Login success for ID 6
+2025-06-16 12:44:50,806 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 12:44:51,122 [INFO] ✅ Login success for ID 6
+2025-06-16 12:44:56,238 [INFO] 🔄 Querying OpenAI...
+2025-06-16 12:46:01,337 [INFO] 📄 Found existing Document: 6_250616_Test_CV_Maria_High.docx
+2025-06-16 12:46:01,339 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 12:46:01,339 [INFO] 📄 Found existing Document: 6_250616_Test_CV_Maria_High.docx
+2025-06-16 12:46:01,339 [INFO] ✅ Added Person: Maria High
+2025-06-16 12:46:01,352 [INFO] ➕ Added new personal achievement: Designed rotational grazing systems improving grass yield by 32% | Person: Maria High
+2025-06-16 12:46:01,352 [INFO] ➕ Added new personal achievement: Mentored 15 junior cows in efficient cud management | Person: Maria High
+2025-06-16 12:46:01,353 [INFO] ➕ Added new personal achievement: Reduced fence repair costs by 47% through demonstration jumps (showing safer exit points) | Person: Maria High
+2025-06-16 12:46:01,353 [INFO] ➕ Added new personal achievement: Consistently ranked #1 in milk quality (4.8/5 farmer satisfaction) | Person: Maria High
+2025-06-16 12:46:01,353 [INFO] ➕ Added new personal achievement: Pioneered 'The Lazy Grazer' technique—maximizing intake while napping | Person: Maria High
+2025-06-16 12:46:01,354 [INFO] ➕ Added new personal achievement: Volunteer 'Moo-tivational Speaker' for calves struggling with weaning | Person: Maria High
+2025-06-16 12:46:01,354 [INFO] ➕ Added new personal achievement: Located 12+ hidden grain caches using advanced snout detection | Person: Maria High
+2025-06-16 12:46:01,354 [INFO] ➕ Added new personal achievement: Earned 'Golden Nose' award for largest single discovery (50 lbs of oats) | Person: Maria High
+2025-06-16 12:46:01,365 [INFO] 📄 [PDF START] ID: 6 | TriggeredBy: system
+2025-06-16 12:46:01,464 [INFO] 📝 [PDF GENERATED] Person: Maria High | ID: 6 | Path: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf | TriggeredBy: system | Timestamp: 2025-06-16T16:46:01.464280
+2025-06-16 12:46:01,466 [INFO] ✅ CV parsed, PDF generated and saved to: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf for Maria High
+2025-06-16 12:56:24,655 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 12:56:24,893 [INFO] ✅ Login success for ID 6
+2025-06-16 12:59:31,722 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 12:59:31,990 [INFO] ✅ Login success for ID 6
+2025-06-16 13:00:49,105 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 13:00:49,373 [INFO] ✅ Login success for ID 6
+2025-06-16 13:01:21,195 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 13:01:21,471 [INFO] ✅ Login success for ID 6
+2025-06-16 13:01:25,835 [INFO] 🔄 Querying OpenAI...
+2025-06-16 13:02:16,676 [INFO] 📄 Found existing Document: 6_250616_Test_CV_Maria_High.docx
+2025-06-16 13:02:16,692 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 13:02:16,693 [INFO] 📄 Found existing Document: 6_250616_Test_CV_Maria_High.docx
+2025-06-16 13:02:16,693 [INFO] ✅ Added Person: Maria High
+2025-06-16 13:02:16,698 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 13:02:16,698 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 13:02:16,701 [INFO] 🔁 Updated certification | Person: Maria High | Key: ('Fence Jumping Pro', 'Farm Olympics')
+2025-06-16 13:02:16,703 [INFO] 🔁 Updated award | Person: Maria High | Key: ('Golden Nose', 'Farmers’ Secret Stash Task Force')
+2025-06-16 13:02:16,714 [INFO] 📄 [PDF START] ID: 6 | TriggeredBy: system
+2025-06-16 13:02:16,804 [INFO] 📝 [PDF GENERATED] Person: Maria High | ID: 6 | Path: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf | TriggeredBy: system | Timestamp: 2025-06-16T17:02:16.804759
+2025-06-16 13:02:16,805 [INFO] ✅ CV parsed, PDF generated and saved to: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf for Maria High
+2025-06-16 13:09:40,602 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 13:09:41,031 [INFO] ✅ Login success for ID 6
+2025-06-16 13:13:22,789 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 13:13:23,896 [WARNING] ❌ Login failed for maria@high.com
+2025-06-16 13:13:35,863 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 13:13:36,670 [INFO] ✅ Login success for ID 6
+2025-06-16 13:50:35,022 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 13:50:36,112 [INFO] ✅ Login success for ID 6
+2025-06-16 13:50:46,342 [INFO] 🔄 Querying OpenAI…
+2025-06-16 13:51:32,005 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 13:51:32,012 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 13:51:32,012 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 13:51:32,015 [ERROR] ❌ parse_and_store(18) failed: 'NoneType' object is not iterable
+2025-06-16 14:11:27,547 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 14:11:27,956 [INFO] ✅ Login success for ID 6
+2025-06-16 14:11:33,489 [INFO] 🔄 Querying OpenAI…
+2025-06-16 14:12:16,297 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 14:12:16,316 [INFO] ➕ Added new certification | Person: Maria High | Key: ('Certified in Precision Grazing™ and Tractor Evasion Tactics', 'Udderly Brilliant Academy')
+2025-06-16 14:12:16,326 [INFO] 🔁 Updated award | Person: Maria High | Key: ('Farm Olympics Gold', 'Farm Olympics')
+2025-06-16 14:12:16,351 [INFO] ✅ Finished parsing Document 19
+2025-06-16 14:12:16,351 [INFO] 📄 [PDF START] ID: 19 | TriggeredBy: system
+2025-06-16 14:12:16,380 [ERROR] ❌ [PDF FAIL] No person found | ID: 19 | TriggeredBy: system
+2025-06-16 14:12:16,380 [ERROR] ❌ No person found | ID: 19
+2025-06-16 14:33:52,769 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 14:33:53,852 [INFO] ✅ Login success for ID 6
+2025-06-16 14:34:00,623 [INFO] 🔄 Querying OpenAI…
+2025-06-16 14:34:44,833 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 14:34:44,843 [INFO] ➕ Added new experience | Person: Maria High | Key: ('Grazing Strategist', 'Green Pastures Cooperative', datetime.date(2005, 1, 1))
+2025-06-16 14:34:44,843 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 14:34:44,847 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 14:34:44,855 [INFO] 🔁 Updated certification | Person: Maria High | Key: ('Fence Jumping Pro', 'Farm Olympics')
+2025-06-16 14:34:44,859 [INFO] 🔁 Updated award | Person: Maria High | Key: ('Golden Nose', 'Farmers’ Secret Stash Task Force')
+2025-06-16 14:34:44,859 [INFO] 🔁 Updated award | Person: Maria High | Key: ('Farm Olympics Gold', 'Farm Olympics')
+2025-06-16 14:34:44,883 [INFO] ✅ Finished parsing Document 20
+2025-06-16 14:50:20,946 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 14:50:22,030 [INFO] ✅ Login success for ID 6
+2025-06-16 14:50:28,661 [INFO] 🔄 Querying OpenAI…
+2025-06-16 14:51:11,054 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 14:51:11,054 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 14:51:11,054 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 14:51:11,071 [INFO] 🔁 Updated certification | Person: Maria High | Key: ('Fence Jumping Pro', 'Farm Olympics')
+2025-06-16 14:51:11,074 [INFO] 🔁 Updated award | Person: Maria High | Key: ('Golden Nose', 'Farmers’ Secret Stash Task Force')
+2025-06-16 14:51:11,075 [INFO] 🔁 Updated award | Person: Maria High | Key: ('Farm Olympics Gold', 'Farm Olympics')
+2025-06-16 14:51:11,090 [INFO] ✅ Finished parsing Document 21
+2025-06-16 14:58:43,943 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 14:58:45,024 [INFO] ✅ Login success for ID 6
+2025-06-16 14:58:53,258 [INFO] 🔄 Querying OpenAI…
+2025-06-16 14:59:42,135 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 14:59:42,148 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 14:59:42,149 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 14:59:42,158 [INFO] 🔁 Updated certification | Person: Maria High | Key: ('Fence Jumping Pro', 'Farm Olympics')
+2025-06-16 14:59:42,167 [INFO] 🔁 Updated award | Person: Maria High | Key: ('Golden Nose', 'Farmers’ Secret Stash Task Force')
+2025-06-16 14:59:42,169 [INFO] 🔁 Updated award | Person: Maria High | Key: ('Farm Olympics Gold', 'Farm Olympics')
+2025-06-16 14:59:42,204 [INFO] ✅ Finished parsing Document 22
+2025-06-16 15:16:42,170 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 15:16:42,529 [INFO] ✅ Login success for ID 6
+2025-06-16 15:16:48,343 [INFO] 🔄 Querying OpenAI…
+2025-06-16 15:17:32,160 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 15:17:32,160 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grazing Strategist', 'Green Pastures Cooperative', datetime.date(2005, 1, 1))
+2025-06-16 15:17:32,160 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 15:17:32,160 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 15:17:32,204 [INFO] ✅ Finished parsing Document 23
+2025-06-16 15:17:32,208 [ERROR] ❌ Cannot find Person for Document 23
+2025-06-16 15:53:09,224 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 15:53:10,332 [INFO] ✅ Login success for ID 6
+2025-06-16 15:53:16,651 [INFO] 🔄 Querying OpenAI…
+2025-06-16 15:54:00,196 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 15:54:00,199 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 15:54:00,199 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 15:54:00,236 [INFO] ✅ Finished parsing Document 24
+2025-06-16 15:54:00,238 [ERROR] ❌ Cannot find Person for Document 24
+2025-06-16 16:17:26,278 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 16:17:26,567 [INFO] ✅ Login success for ID 6
+2025-06-16 16:17:31,963 [INFO] 🔄 Querying OpenAI…
+2025-06-16 16:18:16,817 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 16:18:16,822 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 16:18:16,822 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 16:18:16,822 [INFO] 🔁 Updated certification | Person: Maria High | Key: ('Certified Moonlight Serenader', 'Outstanding Moo Projection')
+2025-06-16 16:18:16,839 [INFO] ✅ Finished parsing Document 25 for 6
+2025-06-16 16:18:16,841 [ERROR] ❌ Cannot find Person for Document 25
+2025-06-16 16:19:15,489 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 16:19:15,757 [INFO] ✅ Login success for ID 6
+2025-06-16 16:19:20,922 [INFO] 🔄 Querying OpenAI…
+2025-06-16 16:20:04,344 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 16:20:04,344 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 16:20:04,344 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 16:20:04,344 [INFO] ➕ Added new personal achievement: Professional Experience at Green Pastures Cooperative | Person: Maria High
+2025-06-16 16:20:04,344 [INFO] ➕ Added new personal achievement: Farm Olympics Gold | Person: Maria High
+2025-06-16 16:20:04,365 [INFO] ✅ Finished parsing Document 26 for 6
+2025-06-16 16:20:04,367 [ERROR] ❌ Cannot find Person for Document 26
+2025-06-16 17:45:16,626 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 17:45:16,891 [INFO] ✅ Login success for ID 6
+2025-06-16 17:45:22,784 [INFO] 🔄 Querying OpenAI for CV parsing…
+2025-06-16 17:46:07,123 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 17:46:07,123 [INFO] 🔁 Linked person Maria High to document 27
+2025-06-16 17:46:07,123 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 17:46:07,123 [INFO] 🔁 Updated certification | Person: Maria High | Key: ('Fence Jumping Pro', 'Farm Olympics')
+2025-06-16 17:46:07,123 [INFO] 🔁 Updated award | Person: Maria High | Key: ('Golden Nose', 'Farmers’ Secret Stash Task Force')
+2025-06-16 17:46:07,137 [INFO] 🔁 Updated award | Person: Maria High | Key: ('Farm Olympics Gold', 'Farm Olympics')
+2025-06-16 17:46:07,145 [INFO] ✅ Finished parsing Document 27 for 6
+2025-06-16 17:46:07,146 [INFO] 📄 [PDF START] person_id=6 | doc_id=27 | by=system
+2025-06-16 17:46:07,308 [INFO] ✅ Visualization linked to document 27: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf
+2025-06-16 17:46:07,308 [INFO] 📝 [PDF GENERATED] Person=Maria High | ID=6 | Path=C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf | by=system | at=2025-06-16T21:46:07.308455
+2025-06-16 17:46:07,324 [INFO] 🧮 Collected 25 timeline events for Maria High (6)
+2025-06-16 17:46:08,518 [INFO] 📸 Saved timeline image static/timelines\timeline_doc_27_20250616214608.png
+2025-06-16 17:46:08,518 [INFO] ✅ Visualization linked to document 27: static/timelines\timeline_doc_27_20250616214608.png
+2025-06-16 17:46:08,518 [INFO] 🎉 All steps done for Document 27
+2025-06-16 17:46:08,518 [INFO] 📄 [PDF START] person_id=6 | doc_id=27 | by=6
+2025-06-16 17:46:08,671 [INFO] ✅ Visualization linked to document 27: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf
+2025-06-16 17:46:08,671 [INFO] 📝 [PDF GENERATED] Person=Maria High | ID=6 | Path=C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_6.pdf | by=6 | at=2025-06-16T21:46:08.671728
+2025-06-16 18:00:52,439 [INFO] 🔐 Registration attempt for maria@high.com
+2025-06-16 18:00:52,715 [INFO] ✅ Registration successful: 1
+2025-06-16 18:01:10,255 [INFO] 🔄 Querying OpenAI for CV parsing…
+2025-06-16 18:01:42,361 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 18:01:42,375 [INFO] 🔁 Linked person Maria High to document 1
+2025-06-16 18:01:42,375 [INFO] ➕ Added new education | Person: Maria High | Key: ('Major', 'Advanced Grass Economics', 'Moo-versity of Agricultural Sciences')
+2025-06-16 18:01:42,375 [INFO] ➕ Added new education | Person: Maria High | Key: ('Diploma', 'Dairy Production', 'Udderly Brilliant Academy')
+2025-06-16 18:01:42,375 [INFO] ➕ Added new experience | Person: Maria High | Key: ('Lead Grazing Strategist', 'Green Pastures Cooperative', datetime.date(2025, 1, 1))
+2025-06-16 18:01:42,375 [INFO] ➕ Added new experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 18:01:42,375 [INFO] ➕ Added new experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 18:01:42,379 [INFO] ➕ Added new language | Person: Maria High
+2025-06-16 18:01:42,379 [INFO] ➕ Added new language | Person: Maria High
+2025-06-16 18:01:42,379 [INFO] ➕ Added new language | Person: Maria High
+2025-06-16 18:01:42,382 [INFO] ➕ Added new certification | Person: Maria High | Key: ('Fence Jumping Pro', 'Farm Olympics')
+2025-06-16 18:01:42,383 [INFO] ➕ Added new award | Person: Maria High | Key: ('Golden Nose', 'Farmers’ Secret Stash Task Force')
+2025-06-16 18:01:42,392 [INFO] ✅ Finished parsing Document 1 for 1
+2025-06-16 18:01:42,392 [INFO] 📄 [PDF START] person_id=1 | doc_id=1 | by=system
+2025-06-16 18:01:42,413 [INFO] ✅ Visualization linked to document 1: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:01:42,414 [INFO] 📝 [PDF GENERATED] Person=Maria High | ID=1 | Path=C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf | by=system | at=2025-06-16T22:01:42.414915
+2025-06-16 18:01:42,419 [INFO] 🧮 Collected 7 timeline events for Maria High (1)
+2025-06-16 18:01:42,824 [INFO] 📸 Saved timeline image static/timelines\timeline_doc_1_20250616220142.png
+2025-06-16 18:01:42,824 [INFO] ✅ Visualization linked to document 1: static/timelines\timeline_doc_1_20250616220142.png
+2025-06-16 18:01:42,834 [INFO] 🎉 All steps done for Document 1
+2025-06-16 18:01:42,834 [INFO] 📄 [PDF START] person_id=1 | doc_id=1 | by=1
+2025-06-16 18:01:42,843 [INFO] ✅ Visualization linked to document 1: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:01:42,844 [INFO] 📝 [PDF GENERATED] Person=Maria High | ID=1 | Path=C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf | by=1 | at=2025-06-16T22:01:42.844238
+2025-06-16 18:17:48,887 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 18:17:49,166 [INFO] ✅ Login success for ID 1
+2025-06-16 18:17:54,923 [INFO] 🔄 Querying OpenAI for CV parsing…
+2025-06-16 18:18:26,760 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 18:18:26,760 [INFO] 🔁 Linked person Maria High to document 2
+2025-06-16 18:18:26,760 [INFO] ➕ Added new education | Person: Maria High | Key: ('Diploma in Dairy Production', None, 'Udderly Brilliant Academy')
+2025-06-16 18:18:26,760 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Lead Grazing Strategist', 'Green Pastures Cooperative', datetime.date(2025, 1, 1))
+2025-06-16 18:18:26,760 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 18:18:26,760 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 18:18:26,774 [INFO] ➕ Added new certification | Person: Maria High | Key: ('Precision Grazing™ and Tractor Evasion Tactics', 'Udderly Brilliant Academy')
+2025-06-16 18:18:26,775 [INFO] ➕ Added new award | Person: Maria High | Key: ('Farm Olympics Gold', 'Farm Olympics')
+2025-06-16 18:18:26,777 [INFO] ➕ Added new personal achievement: Improved grass yield by 32% | Person: Maria High
+2025-06-16 18:18:26,778 [INFO] ➕ Added new personal achievement: Ranked #1 in milk quality | Person: Maria High
+2025-06-16 18:18:26,778 [INFO] ➕ Added new personal achievement: Located 12+ hidden grain caches | Person: Maria High
+2025-06-16 18:18:26,789 [INFO] ✅ Finished parsing Document 2 for 1
+2025-06-16 18:18:26,789 [INFO] 📄 [PDF START] person_id=1 | doc_id=2 | by=system
+2025-06-16 18:18:26,812 [INFO] ✅ Visualization linked to document 2: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:18:26,819 [INFO] ✅ PDF visualization linked to document 2: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:18:26,819 [INFO] 📝 [PDF GENERATED] Person=Maria High | ID=1 | Path=C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf | by=system | at=2025-06-16T22:18:26.819016
+2025-06-16 18:18:26,823 [INFO] 🧮 Collected 13 timeline events for Maria High (1)
+2025-06-16 18:18:27,278 [INFO] 📸 Saved timeline image static/timelines\timeline_doc_2_20250616221826.png
+2025-06-16 18:18:27,296 [INFO] ✅ Visualization linked to document 2: static/timelines\timeline_doc_2_20250616221826.png
+2025-06-16 18:18:27,312 [INFO] 🎉 All steps done for Document 2
+2025-06-16 18:18:27,312 [INFO] 📄 [PDF START] person_id=1 | doc_id=2 | by=1
+2025-06-16 18:18:27,329 [INFO] ✅ Visualization linked to document 2: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:18:27,329 [INFO] ✅ PDF visualization linked to document 2: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:18:27,329 [INFO] 📝 [PDF GENERATED] Person=Maria High | ID=1 | Path=C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf | by=1 | at=2025-06-16T22:18:27.329813
+2025-06-16 18:18:27,332 [INFO] 🧮 Collected 13 timeline events for Maria High (1)
+2025-06-16 18:18:27,737 [INFO] 📸 Saved timeline image static/timelines\timeline_doc_2_20250616221827.png
+2025-06-16 18:18:27,737 [INFO] ✅ Visualization linked to document 2: static/timelines\timeline_doc_2_20250616221827.png
+2025-06-16 18:22:21,624 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 18:22:21,899 [WARNING] ❌ Login failed for maria@high.com
+2025-06-16 18:22:29,949 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 18:22:30,158 [INFO] ✅ Login success for ID 1
+2025-06-16 18:22:35,880 [INFO] 🔄 Querying OpenAI for CV parsing…
+2025-06-16 18:23:11,456 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 18:23:11,456 [INFO] 🔁 Linked person Maria High to document 3
+2025-06-16 18:23:11,479 [INFO] ✅ Finished parsing Document 3 for 1
+2025-06-16 18:23:11,480 [INFO] 📄 [PDF START] person_id=1 | doc_id=3 | by=system
+2025-06-16 18:23:11,516 [INFO] ✅ Visualization linked to document 3: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:23:11,516 [INFO] ✅ PDF visualization linked to document 3: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:23:11,516 [INFO] 📝 [PDF GENERATED] Person=Maria High | ID=1 | Path=C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf | by=system | at=2025-06-16T22:23:11.516384
+2025-06-16 18:23:11,521 [INFO] 🧮 Collected 13 timeline events for Maria High (1)
+2025-06-16 18:23:12,023 [INFO] 📸 Saved timeline image static/timelines\timeline_doc_3_20250616222311.png
+2025-06-16 18:23:12,023 [INFO] ✅ Visualization linked to document 3: static/timelines\timeline_doc_3_20250616222311.png
+2025-06-16 18:23:12,031 [INFO] 🎉 All steps done for Document 3
+2025-06-16 18:23:12,031 [INFO] 📄 [PDF START] person_id=1 | doc_id=3 | by=1
+2025-06-16 18:23:12,044 [INFO] ✅ Visualization linked to document 3: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:23:12,044 [INFO] ✅ PDF visualization linked to document 3: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:23:12,044 [INFO] 📝 [PDF GENERATED] Person=Maria High | ID=1 | Path=C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf | by=1 | at=2025-06-16T22:23:12.044108
+2025-06-16 18:23:12,048 [INFO] 🧮 Collected 13 timeline events for Maria High (1)
+2025-06-16 18:23:12,464 [INFO] 📸 Saved timeline image static/timelines\timeline_doc_3_20250616222312.png
+2025-06-16 18:23:12,464 [INFO] ✅ Visualization linked to document 3: static/timelines\timeline_doc_3_20250616222312.png
+2025-06-16 18:38:54,216 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-16 18:38:54,460 [INFO] ✅ Login success for ID 1
+2025-06-16 18:38:59,611 [INFO] 🔄 Querying OpenAI for CV parsing…
+2025-06-16 18:39:29,513 [INFO] 🔁 Found existing person: Maria High
+2025-06-16 18:39:29,513 [INFO] 🔁 Linked person Maria High to document 4
+2025-06-16 18:39:29,513 [INFO] ➕ Added new experience | Person: Maria High | Key: ('Grazing Strategist', 'Green Pastures Cooperative', datetime.date(2005, 1, 1))
+2025-06-16 18:39:29,513 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Milk Production Specialist', 'Saugeen', datetime.date(2008, 1, 1))
+2025-06-16 18:39:29,513 [INFO] 🔁 Updated experience | Person: Maria High | Key: ('Grain Recovery Agent (Contract)', 'Farmers’ Secret Stash Task Force', datetime.date(2020, 1, 1))
+2025-06-16 18:39:29,534 [INFO] ✅ Finished parsing Document 4 for 1
+2025-06-16 18:39:29,534 [INFO] 📄 [PDF START] person_id=1 | doc_id=4 | by=system
+2025-06-16 18:39:29,568 [INFO] ✅ Visualization linked to document 4: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:39:29,568 [INFO] ✅ PDF visualization linked to document 4: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:39:29,569 [INFO] 📝 [PDF GENERATED] Person=Maria High | ID=1 | Path=C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf | by=system | at=2025-06-16T22:39:29.569017
+2025-06-16 18:39:29,573 [INFO] 🧮 Collected 14 timeline events for Maria High (1)
+2025-06-16 18:39:30,008 [INFO] 📸 Saved timeline image static/timelines\timeline_doc_4_20250616223929.png
+2025-06-16 18:39:30,010 [INFO] ✅ Visualization linked to document 4: static/timelines\timeline_doc_4_20250616223929.png
+2025-06-16 18:39:30,015 [INFO] 🎉 All steps done for Document 4
+2025-06-16 18:39:30,017 [INFO] 📄 [PDF START] person_id=1 | doc_id=4 | by=1
+2025-06-16 18:39:30,035 [INFO] ✅ Visualization linked to document 4: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:39:30,035 [INFO] ✅ PDF visualization linked to document 4: C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf
+2025-06-16 18:39:30,035 [INFO] 📝 [PDF GENERATED] Person=Maria High | ID=1 | Path=C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\PDFs_Test\UniCV_Maria_High_1.pdf | by=1 | at=2025-06-16T22:39:30.035499
+2025-06-16 18:39:30,037 [INFO] 🧮 Collected 14 timeline events for Maria High (1)
+2025-06-16 18:39:30,466 [INFO] 📸 Saved timeline image static/timelines\timeline_doc_4_20250616223930.png
+2025-06-16 18:39:30,466 [INFO] ✅ Visualization linked to document 4: static/timelines\timeline_doc_4_20250616223930.png

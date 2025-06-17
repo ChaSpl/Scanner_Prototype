@@ -1,0 +1,33 @@
+2025-06-14 13:39:27,169 [INFO] 🔐 Registration attempt for email: hulda@henne.com
+2025-06-14 13:39:27,440 [ERROR] 🔥 Registration failed for email: hulda@henne.com
+Traceback (most recent call last):
+  File "C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\app\routes\auth.py", line 68, in register
+    access_token = create_access_token(  # now 'user' exists
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: create_access_token() missing 1 required positional argument: 'expires_delta'
+2025-06-14 13:45:34,148 [INFO] 🔐 Registration attempt for email: hulda@henne.com
+2025-06-14 13:45:34,178 [WARNING] ❌ Email already registered: hulda@henne.com
+2025-06-14 13:45:34,178 [ERROR] 🔥 Registration failed for email: hulda@henne.com
+Traceback (most recent call last):
+  File "C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\app\routes\auth.py", line 57, in register
+    raise HTTPException(status_code=400, detail="Email already registered")
+fastapi.exceptions.HTTPException: 400: Email already registered
+2025-06-14 13:49:53,098 [INFO] 🔐 Registration attempt for email: hulda@henne.com
+2025-06-14 13:49:53,130 [WARNING] ❌ Email already registered: hulda@henne.com
+2025-06-14 13:49:53,131 [WARNING] ❌ Email already registered
+2025-06-14 13:51:24,945 [INFO] 🔐 Registration attempt for email: maria@high.com
+2025-06-14 13:51:25,188 [INFO] ✅ Registration successful: ID 6
+2025-06-14 13:55:01,996 [INFO] 🔐 Login attempt for: hulda@henne.com
+2025-06-14 14:04:33,066 [INFO] 🔐 Login attempt for: maria@high.com
+2025-06-14 14:04:33,332 [INFO] ✅ Login success for ID 6
+2025-06-14 14:39:54,775 [INFO] 🔐 Login attempt for: maria@high.com
+2025-06-14 14:45:31,831 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-14 14:45:32,083 [INFO] ✅ Login success for ID 6 | maria@high.com
+2025-06-14 14:46:02,741 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-14 14:46:02,944 [INFO] ✅ Login success for ID 6 | maria@high.com
+2025-06-14 14:56:56,096 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-14 14:56:56,355 [INFO] ✅ Login success for ID 6 | maria@high.com
+2025-06-14 15:22:08,223 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-14 15:22:08,480 [INFO] ✅ Login success for ID 6 | maria@high.com
+2025-06-14 15:22:24,838 [INFO] 🔐 Login attempt for maria@high.com
+2025-06-14 15:22:25,050 [INFO] ✅ Login success for ID 6 | maria@high.com

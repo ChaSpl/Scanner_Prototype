@@ -1,0 +1,15 @@
+/* src/index.css */
+@import "tailwindcss";    /* injects base, components & utilities automatically */
+
+@layer components {
+  .btn-primary,
+  .btn-secondary {
+    @apply inline-block font-semibold py-2 px-4 rounded-md;
+  }
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+  .btn-secondary {
+    @apply bg-gray-300 text-black hover:bg-gray-400;
+  }
+}

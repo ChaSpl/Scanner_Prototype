@@ -1,0 +1,24 @@
+2025-06-13 17:29:28,329 [INFO] 🧮 Collected 0 timeline events for | Dr. Ada Lovelens | 1
+2025-06-13 17:29:28,370 [INFO] 🧭 START timeline generation for | Dr. Ada Lovelens | 1
+2025-06-13 17:29:29,336 [INFO] 🖼 PATH | Dr. Ada Lovelens | 1 | C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\static\timelines\timeline_person_1_20250613172929.png | system
+2025-06-13 17:29:29,578 [INFO] 📸 Saved timeline image at C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\static\timelines\timeline_person_1_20250613172929.png
+2025-06-13 17:29:29,598 [INFO] ✅ DONE: DB entry created | Dr. Ada Lovelens | 1 | system
+2025-06-13 17:29:29,604 [INFO] ✅ Visualization saved to DB | static/timelines\timeline_person_1_20250613172929.png | Dr. Ada Lovelens | 1 | 1 | TriggeredBy: system
+2025-06-13 17:29:45,606 [INFO] 🧮 Collected 0 timeline events for | Boonie Clyde | 2
+2025-06-13 17:29:45,640 [INFO] 🧭 START timeline generation for | Boonie Clyde | 2
+2025-06-13 17:29:45,850 [INFO] 🖼 PATH | Boonie Clyde | 2 | C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\static\timelines\timeline_person_2_20250613172945.png | system
+2025-06-13 17:29:46,285 [INFO] 📸 Saved timeline image at C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\static\timelines\timeline_person_2_20250613172945.png
+2025-06-13 17:29:46,301 [INFO] ✅ DONE: DB entry created | Boonie Clyde | 2 | system
+2025-06-13 17:29:46,316 [INFO] ✅ Visualization saved to DB | static/timelines\timeline_person_2_20250613172945.png | Boonie Clyde | 2 | 2 | TriggeredBy: system
+2025-06-13 17:30:49,475 [INFO] 🧮 Collected 0 timeline events for | Dr. Ada Lovelens | 1
+2025-06-13 17:30:49,509 [INFO] 🧭 START timeline generation for | Dr. Ada Lovelens | 1
+2025-06-13 17:30:49,663 [INFO] 🖼 PATH | Dr. Ada Lovelens | 1 | C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\static\timelines\timeline_person_1_20250613173049.png | system
+2025-06-13 17:30:49,892 [INFO] 📸 Saved timeline image at C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\static\timelines\timeline_person_1_20250613173049.png
+2025-06-13 17:30:49,896 [INFO] ✅ DONE: DB entry created | Dr. Ada Lovelens | 1 | system
+2025-06-13 17:30:49,908 [INFO] ✅ Visualization saved to DB | Path: static/timelines\timeline_person_1_20250613173049.png | Person: Dr. Ada Lovelens | ID: 1 | DocID: 1 | TriggeredBy: system
+2025-06-13 17:30:55,204 [INFO] 🧮 Collected 0 timeline events for | Boonie Clyde | 2
+2025-06-13 17:30:55,225 [INFO] 🧭 START timeline generation for | Boonie Clyde | 2
+2025-06-13 17:30:55,447 [INFO] 🖼 PATH | Boonie Clyde | 2 | C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\static\timelines\timeline_person_2_20250613173055.png | system
+2025-06-13 17:30:55,887 [INFO] 📸 Saved timeline image at C:\Users\chasp\Documents\WORK\SKILL SCANNER\SKSC_Prototype\static\timelines\timeline_person_2_20250613173055.png
+2025-06-13 17:30:55,891 [INFO] ✅ DONE: DB entry created | Boonie Clyde | 2 | system
+2025-06-13 17:30:55,903 [INFO] ✅ Visualization saved to DB | Path: static/timelines\timeline_person_2_20250613173055.png | Person: Boonie Clyde | ID: 2 | DocID: 2 | TriggeredBy: system
