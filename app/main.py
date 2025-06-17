@@ -1,5 +1,6 @@
 # app/main.py
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.routes.upload import router as upload_router
@@ -23,3 +24,7 @@ app.include_router(edit_router)
 app.include_router(auth_router)
 
 
+app.mount(
+    "/", 
+    StaticFiles(directory="frontend/dist", html=True), 
+    name="frontend")
