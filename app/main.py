@@ -25,9 +25,7 @@ app.include_router(edit_router)
 app.include_router(auth_router)
 
 # 3) Serve the React build at the root URL
-#    → directory must match exactly where the Dockerfile put it
 app.mount(
     "/", 
-    StaticFiles(directory="frontend/dist", html=True), 
-    name="frontend",
-)
+    StaticFiles(directory="app/frontend/dist", html=True), 
+    name="frontend")
