@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.env
+
+# Node / frontend build
+app/frontend/node_modules/
+app/frontend/dist/
+
+# SQLite & dev artifacts
+db/database.sqlite
+PDFs_Test/
+Resumes_Test/
+AuditTrail/
+DevHelperCode/
+*.log
+
+# Docker
+.dockerignore
