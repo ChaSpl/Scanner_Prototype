@@ -62,7 +62,7 @@ narwhals==1.24.1
 nest-asyncio==1.6.0
 networkx==3.4.2
 numba==0.61.2
-numpy==1.26.0
+numpy==1.26.4
 openai==1.79.0
 openai-whisper @ git+https://github.com/openai/whisper.git@dd985ac4b90cafeef8712f2998d62c59c3e62d22
 openpyxl==3.1.5
