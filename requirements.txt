@@ -1,12 +1,14 @@
 docx==0.2.4
 fastapi==0.115.13
 fpdf==1.7.2
-jose==1.0.0
+python-jose[cryptography]==3.3.0
 matplotlib==3.10.3
 openai==1.88.0
 passlib==1.7.4
 pydantic==2.11.7
 python-dotenv==1.1.0
-python_dateutil==2.9.0.post0
+python-dateutil==2.9.0.post0
 SQLAlchemy==2.0.41
 uvicorn[standard]==0.23.2
+python-multipart==0.0.6
+aiofiles==23.1.0
