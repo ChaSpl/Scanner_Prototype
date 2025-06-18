@@ -2,14 +2,14 @@
 import axios from 'axios';
 import type { InternalAxiosRequestConfig } from 'axios';
 
-// In development, VITE_API_URL is set; in production it's undefined, so baseURL=''
-const baseURL = import.meta.env.DEV
-  ? (import.meta.env.VITE_API_URL || 'http://localhost:8000')
-  : '';
+// In dev: VITE_API_URL comes from .env.development, e.g. "http://localhost:8000"
+// In prod: VITE_API_URL is undefined → baseURL = '' → requests go to same origin
+const baseURL = import.meta.env.VITE_API_URL ?? '';
 
 const api = axios.create({
   baseURL,
-  // if you need cookies: withCredentials: true,
+  // if you ever use cookies you can uncomment:
+  // withCredentials: true,
 });
 
 // Attach the JWT token to every request if present
