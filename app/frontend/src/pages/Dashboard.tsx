@@ -1,4 +1,6 @@
 // src/pages/Dashboard.tsx
+// Upon change, run: npm run build in app/frontend terminal
+
 import { useContext, useEffect, useState, useRef } from 'react';
 import type { ChangeEvent } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
@@ -23,7 +25,7 @@ interface DocumentStatus {
 
 interface Viz {
   id: number;
-  type: string;      // "pdf" or "timeline"
+  type: string;      // whatever string your backend uses, e.g. "PDF" or "PNG"
   file_path: string; // "/pdfs/..." or "/static/..."
 }
 
@@ -34,18 +36,16 @@ export default function Dashboard() {
   const [user, setUser] = useState<MeResponse | null>(null);
   const [file, setFile] = useState<File | null>(null);
 
-  // upload + status
   const [uploading, setUploading] = useState(false);
   const [docId, setDocId] = useState<number | null>(null);
   const [docStatus, setDocStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // visualizations
   const [visualizations, setVisualizations] = useState<Viz[]>([]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // 1) Load current user
+  // 1. Load user
   useEffect(() => {
     if (!auth.token) {
       navigate('/login');
@@ -59,7 +59,7 @@ export default function Dashboard() {
       });
   }, [auth, navigate]);
 
-  // 2) Handle file selection & upload
+  // 2. File selection & upload
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFile(e.target.files?.[0] ?? null);
   };
@@ -83,14 +83,14 @@ export default function Dashboard() {
     }
   };
 
-  // 3) Poll for status until 'complete' or 'error'
+  // 3. Poll status
   useEffect(() => {
     if (!docId) return;
     const iv = setInterval(async () => {
       try {
-        const res = await api.get<DocumentStatus>(`/documents/${docId}`);
-        setDocStatus(res.data.status);
-        if (res.data.status === 'complete' || res.data.status === 'error') {
+        const { data } = await api.get<DocumentStatus>(`/documents/${docId}`);
+        setDocStatus(data.status);
+        if (data.status === 'complete' || data.status === 'error') {
           clearInterval(iv);
           setUploading(false);
         }
@@ -101,42 +101,41 @@ export default function Dashboard() {
     return () => clearInterval(iv);
   }, [docId]);
 
-  // 4) Once complete, fetch visualizations (first PDF, first timeline)
+  // 4. Once complete, fetch viz
   useEffect(() => {
     if (docStatus !== 'complete') return;
     const iv = setInterval(async () => {
       try {
-        const res = await api.get<Viz[]>(`/documents/${docId}/visualizations`);
-        if (res.data.length > 0) {
-          setVisualizations(res.data);
+        const { data } = await api.get<Viz[]>(`/documents/${docId}/visualizations`);
+        if (data.length > 0) {
+          setVisualizations(data);
           clearInterval(iv);
         }
       } catch {
-        // retry
+        // keep retrying
       }
     }, 2000);
     return () => clearInterval(iv);
   }, [docStatus, docId]);
 
-  // redirect if not loaded
   if (!user) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p>Loading your profile…</p>
+        <p>Loading profile…</p>
       </div>
     );
   }
 
-  // find exactly one of each
-  const pdfViz = visualizations.find(v => v.type === 'pdf');
-  const timelineViz = visualizations.find(v => v.type === 'timeline');
+  // Pick one PDF, one “not-PDF” as timeline:
+  const pdfViz = visualizations.find(v => v.type.toLowerCase() === 'pdf');
+  const timelineViz = visualizations.find(v => v.type.toLowerCase() !== 'pdf');
 
   return (
     <main className="min-h-screen p-8 bg-gray-50 text-gray-800">
       <h1 className="text-3xl font-bold mb-4">Welcome, {user.full_name}!</h1>
       <p className="mb-6">Email: {user.email}</p>
 
-      {/* Upload Section */}
+      {/* Upload */}
       <section className="bg-white p-6 rounded-lg shadow-md mb-6">
         <h2 className="text-xl font-semibold mb-2">Upload Your CV</h2>
         <input
@@ -173,7 +172,7 @@ export default function Dashboard() {
         {error && <p className="mt-2 text-red-600">{error}</p>}
       </section>
 
-      {/* Visualizations Section */}
+      {/* Files */}
       {docStatus === 'complete' && (pdfViz || timelineViz) && (
         <section className="bg-white p-6 rounded-lg shadow-md mb-6">
           <h2 className="text-xl font-semibold mb-2">Your Files</h2>
@@ -182,7 +181,7 @@ export default function Dashboard() {
               <div className="border p-4 flex flex-col">
                 <p className="text-sm font-medium mb-2">PDF</p>
                 <p className="mb-2 text-sm text-gray-600">
-                  Your parsed CV (PDF) is ready
+                  Your parsed CV is ready
                 </p>
                 <a
                   href={pdfViz.file_path}
