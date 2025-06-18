@@ -552,7 +552,16 @@ def upsert_private_milestones(session, person, milestones_data):
 #
 ##################################################################################################################
 
-def parse_and_store(doc_id: int) -> int | None:
+# app/services/parse_cv.py
+
+def parse_and_store(
+    doc_id: int,
+    fallback_email: str | None = None
+) -> int | None:
+    """
+    Parse the document, upsert all data, and return the person_id.
+    If the parser fails to extract an email, use fallback_email instead.
+    """
     session = SessionLocal()
     try:
         doc = session.get(Document, doc_id)
@@ -560,16 +569,16 @@ def parse_and_store(doc_id: int) -> int | None:
             logger.error(f"❌ No Document {doc_id}")
             return
 
-        # DELEGATE parsing to new module
+        # 1) delegate parsing to LLM
         data, prompt, structured = parse_cv_with_llm(doc.source_filename)
-        # audit
         doc.llm_prompt = prompt
         doc.llm_response = structured
         session.flush()
 
-        # upsert person + all sections
-        person = get_or_create_person(session, data, doc)
-        # loop to always default to []
+        # 2) upsert person, passing our fallback
+        person = get_or_create_person(session, data, doc, fallback_email)
+
+        # 3) upsert all the sections
         mapping = [
             ("education", upsert_educations),
             ("professional_experience", upsert_experiences),
@@ -584,23 +593,21 @@ def parse_and_store(doc_id: int) -> int | None:
         for key, fn in mapping:
             fn(session, person, data.get(key) or [])
 
-        # finally mark parsed
+        # 4) mark parsed & commit
         doc.status = "parsed"
         session.commit()
-        logger.info(f"✅ Finished parsing Document {doc_id} for {person.id}")
+        logger.info(f"✅ Finished parsing Document {doc_id} for Person ID {person.id}")
 
-        # AUTOMATIC NEXT STEPS
-        person_id = person.id
-        # 1) generate PDF and register
-        generate_cv_pdf(person_id, document_id=doc_id)
-        # 2) plot timeline and register
-        plot_timeline_and_save(person_id, document_id=doc_id)
+        # 5) generate PDF & timeline
+        generate_cv_pdf(person.id, document_id=doc_id)
+        plot_timeline_and_save(person.id, document_id=doc_id)
 
-        # mark complete
+        # 6) mark complete
         doc.status = "complete"
         session.commit()
         logger.info(f"🎉 All steps done for Document {doc_id}")
-        return person_id
+
+        return person.id
 
     except Exception as e:
         session.rollback()
@@ -608,4 +615,3 @@ def parse_and_store(doc_id: int) -> int | None:
         raise
     finally:
         session.close()
-       
