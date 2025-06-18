@@ -25,7 +25,6 @@ from app.models import (
 from app.services.generate_pdf import generate_cv_pdf
 from app.services.plot_timeline_vertical import plot_timeline_and_save
 
-
 def extract_text(docx_path: str) -> list[str]:
     doc = DocxDocument(docx_path)
     return [p.text.strip() for p in doc.paragraphs if p.text.strip()]
@@ -76,31 +75,48 @@ def get_or_create_document(session, cv_path: str, uploaded_by="system") -> Docum
         logger.info(f"📄 Found existing Document: {doc.title}")
     return doc
 
-def get_or_create_person(session, data: dict, document: Document) -> Person:
-    email = (data.get("email") or "").strip().lower()
+def get_or_create_person(
+    session,
+    data: dict,
+    document: Document,
+    fallback_email: str | None = None
+) -> Person:
+    """
+    Given the parsed `data` and the Document record, find or create
+    the Person. If `data["email"]` is missing, falls back to `fallback_email`.
+    Raises ValueError if neither is provided.
+    """
+    # 1) Determine the email to use
+    raw_email = data.get("email") or fallback_email
+    email = (raw_email or "").strip().lower()
     if not email:
         raise ValueError("Email address is required to match a person.")
+
+    # 2) Look up an existing Person
     person = session.query(Person).filter_by(email=email).first()
     if person:
         logger.info(f"🔁 Found existing person: {person.full_name}")
+        # If this document isn’t already linked, attach it
         if person.document_id != document.id:
             person.document = document
             session.flush()
             logger.info(f"🔁 Linked person {person.full_name} to document {document.id}")
     else:
+        # 3) Create a new Person record
         person = Person(
-            full_name=data.get("full_name", ""),
-            email=email,
-            phone=data.get("phone", ""),
-            linkedin=data.get("linkedin", ""),
-            github=data.get("github", ""),
-            website=data.get("website", ""),
-            short_bio=data.get("short_bio", ""),
-            document=document
+            full_name    = data.get("full_name", ""),
+            email        = email,
+            phone        = data.get("phone", ""),
+            linkedin     = data.get("linkedin", ""),
+            github       = data.get("github", ""),
+            website      = data.get("website", ""),
+            short_bio    = data.get("short_bio", ""),
+            document     = document,
         )
         session.add(person)
         session.flush()
         logger.info(f"✅ Created new person: {person.full_name}")
+
     return person
 
 
