@@ -23,8 +23,8 @@ interface DocumentStatus {
 
 interface Viz {
   id: number;
-  type: string;
-  file_path: string;
+  type: string;      // e.g. "pdf" or "timeline"
+  file_path: string; // starts with "/pdfs/..." or "/static/..."
 }
 
 export default function Dashboard() {
@@ -42,13 +42,12 @@ export default function Dashboard() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // load current user
+  // 1) load current user
   useEffect(() => {
     if (!auth.token) {
       navigate('/login');
       return;
     }
-
     api.get<MeResponse>('/me')
       .then(res => setUser(res.data))
       .catch(() => {
@@ -56,63 +55,63 @@ export default function Dashboard() {
         auth.logout();
         navigate('/login');
       });
-  }, [auth.token, navigate]);
+  }, [auth, navigate]);
 
-  // poll document status until parsed
+  // 2) poll document status
   useEffect(() => {
-  if (!docId) return;
-  const interval = setInterval(() => {
-    api.get<DocumentStatus>(`/documents/${docId}`)
-      .then(res => {
-        const st = res.data.status;
-        setDocStatus(st);
-        setError(null);                 // clear any old error
+    if (!docId) return;
+    setUploading(true);
+    const interval = setInterval(() => {
+      api.get<DocumentStatus>(`/documents/${docId}`)
+        .then(res => {
+          const st = res.data.status;
+          setDocStatus(st);
+          setError(null);
+          if (st === 'parsed' || st === 'complete') {
+            clearInterval(interval);
+          }
+        })
+        .catch(err => {
+          console.error('Status poll failed', err);
+          setError('Failed to fetch document status.');
+        });
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [docId]);
 
-        // stop polling as soon as we hit either parsed or complete
-        if (st === 'parsed' || st === 'complete') {
-          clearInterval(interval);
-        }
-      })
-      .catch(err => {
-        console.error('Status poll failed', err);
-        // keep retrying—but show the error
-        setError('Failed to fetch document status.');
-        // don't clearInterval here, so we retry automatically
-        // if you want a backoff, you could clear+restart
-      });
-  }, 2000);
-  return () => clearInterval(interval);
-}, [docId]);
-
-  // poll for visualizations once parsed
+  // 3) poll for visualizations when parsed or complete
   useEffect(() => {
-    if (!docId || docStatus !== 'parsed') return;
+    if (!docId || (docStatus !== 'parsed' && docStatus !== 'complete')) return;
     const interval = setInterval(() => {
       api.get<Viz[]>(`/documents/${docId}/visualizations`)
         .then(res => {
-          if (res.data.length) {
+          if (res.data.length > 0) {
             setVisualizations(res.data);
             clearInterval(interval);
             setUploading(false);
           }
         })
-        .catch(() => {});
+        .catch(() => {
+          // swallow—will try again
+        });
     }, 2000);
     return () => clearInterval(interval);
   }, [docId, docStatus]);
 
+  // 4) stop spinner if status flips to complete before viz arrive
   useEffect(() => {
-    if (docStatus === 'parsed' || docStatus === 'complete') {
+    if (docStatus === 'complete') {
       setUploading(false);
     }
   }, [docStatus]);
 
+  // file picker
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0] ?? null;
-    console.log('📁 File selected:', selected);
     setFile(selected);
   };
 
+  // upload action
   const handleUpload = async () => {
     if (!file) return;
     setUploading(true);
@@ -126,11 +125,10 @@ export default function Dashboard() {
       const form = new FormData();
       form.append('file', file);
       const res = await api.post<UploadResponse>('/documents/upload', form);
-      const id = res.data.document_id;
-      setDocId(id);
-      setUploadStatus(`Uploaded: doc #${id}`);
+      setDocId(res.data.document_id);
+      setUploadStatus(`Uploaded: doc #${res.data.document_id}`);
     } catch (err: any) {
-      console.error('❌ Upload error', err);
+      console.error('Upload error', err);
       setError(err.response?.data?.detail || 'Upload failed.');
       setUploading(false);
     }
@@ -183,25 +181,35 @@ export default function Dashboard() {
         {error && <p className="mt-2 text-red-600">{error}</p>}
       </section>
 
-      {/* Timeline Preview Section */}
+      {/* Artifacts Section */}
       {visualizations.length > 0 && (
         <section className="bg-white p-6 rounded-lg shadow-md mb-6">
-          <h2 className="text-xl font-semibold mb-2">Your Timeline</h2>
+          <h2 className="text-xl font-semibold mb-2">Your Files</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {visualizations.map(v => (
-              <div key={v.id} className="border p-2">
-                <p className="text-sm font-medium mb-1">{v.type}</p>
-                <img
-                  src={v.file_path}
-                  alt={v.type}
-                  className="w-full h-auto"
-                />
+              <div key={v.id} className="border p-4 flex flex-col items-start">
+                <p className="text-sm font-medium mb-2 capitalize">{v.type}</p>
+
+                {/* Timeline image */}
+                {v.type === 'timeline' && (
+                  <img
+                    src={v.file_path}
+                    alt="Timeline"
+                    className="w-full h-auto mb-2"
+                  />
+                )}
+
+                {/* PDF download */}
+                {v.type === 'pdf' && (
+                  <p className="mb-2 text-sm text-gray-600">Your CV PDF is ready</p>
+                )}
+
                 <a
                   href={v.file_path}
                   download
-                  className="mt-2 inline-block text-blue-600 hover:underline"
+                  className="mt-auto text-blue-600 hover:underline"
                 >
-                  Download
+                  Download {v.type === 'timeline' ? 'Timeline' : 'PDF'}
                 </a>
               </div>
             ))}
@@ -209,11 +217,9 @@ export default function Dashboard() {
         </section>
       )}
 
+      {/* Logout */}
       <button
-        onClick={() => {
-          auth.logout();
-          navigate('/login');
-        }}
+        onClick={() => { auth.logout(); navigate('/login'); }}
         className="btn-secondary mt-6"
       >
         Log Out

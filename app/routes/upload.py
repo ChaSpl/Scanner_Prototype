@@ -46,9 +46,10 @@ def full_pipeline(
     user_id: str
 ):
     """
-    Background task: parse the CV (using fallback_email if none
-    is extracted), then generate PDF & timeline.
+    Background task: parse the CV, then generate PDF & timeline,
+    then mark the document as complete.
     """
+    # 1) parse + create/update Person
     try:
         person_id = parse_and_store(document_id, fallback_email)
     except ValueError as e:
@@ -59,17 +60,28 @@ def full_pipeline(
         logger.error(f"⚠️ full_pipeline: no person for doc {document_id}")
         return
 
-    # 1) generate PDF (attaching user_id)
+    # 2) generate PDF
     generate_cv_pdf(
         person_id=person_id,
         user_id=user_id,
         document_id=document_id
     )
-    # 2) plot timeline
+    # 3) plot timeline
     plot_timeline_and_save(
         person_id=person_id,
         document_id=document_id
     )
+
+    # 4) finally, mark the document as complete
+    db2 = SessionLocal()
+    try:
+        doc = db2.get(Document, document_id)
+        if doc:
+            doc.status = "complete"
+            db2.commit()
+            logger.info(f"✅ Document {document_id} marked complete")
+    finally:
+        db2.close()
 
 
 @router.post("/upload", status_code=status.HTTP_201_CREATED)
