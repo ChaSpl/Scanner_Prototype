@@ -192,12 +192,12 @@ export default function Dashboard() {
               <div key={v.id} className="border p-2">
                 <p className="text-sm font-medium mb-1">{v.type}</p>
                 <img
-                  src={`${import.meta.env.VITE_API_URL}/${v.file_path}`}
+                  src={v.file_path}
                   alt={v.type}
                   className="w-full h-auto"
                 />
                 <a
-                  href={`${import.meta.env.VITE_API_URL}/${v.file_path}`}
+                  href={v.file_path}
                   download
                   className="mt-2 inline-block text-blue-600 hover:underline"
                 >

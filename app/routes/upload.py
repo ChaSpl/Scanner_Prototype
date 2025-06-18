@@ -3,8 +3,14 @@
 import os
 from typing import Generator
 from fastapi import (
-    APIRouter, Depends, UploadFile, File,
-    BackgroundTasks, HTTPException, status
+    APIRouter,
+    Depends,
+    UploadFile,
+    File,
+    BackgroundTasks,
+    HTTPException,
+    status,
+    Request,
 )
 from sqlalchemy.orm import Session
 
@@ -133,13 +139,13 @@ def regenerate_pdf(
     """
     doc = db.get(Document, doc_id)
     if not doc:
-        raise HTTPException(404, "Document not found")
+        raise HTTPException(status_code=404, detail="Document not found")
     if doc.status != "parsed":
-        raise HTTPException(400, "Cannot generate PDF until document is parsed")
+        raise HTTPException(status_code=400, detail="Cannot generate PDF until document is parsed")
 
     person = db.query(Person).filter(Person.document_id == doc_id).first()
     if not person:
-        raise HTTPException(500, "Parsed but no Person record found")
+        raise HTTPException(status_code=500, detail="Parsed but no Person record found")
 
     background_tasks.add_task(
         generate_cv_pdf,
@@ -162,13 +168,13 @@ def regenerate_timeline(
     """
     doc = db.get(Document, doc_id)
     if not doc:
-        raise HTTPException(404, "Document not found")
+        raise HTTPException(status_code=404, detail="Document not found")
     if doc.status != "parsed":
-        raise HTTPException(400, "Cannot plot timeline until document is parsed")
+        raise HTTPException(status_code=400, detail="Cannot plot timeline until document is parsed")
 
     person = db.query(Person).filter(Person.document_id == doc_id).first()
     if not person:
-        raise HTTPException(500, "Parsed but no Person record found")
+        raise HTTPException(status_code=500, detail="Parsed but no Person record found")
 
     background_tasks.add_task(
         plot_timeline_and_save,
@@ -181,22 +187,30 @@ def regenerate_timeline(
 @router.get("/{doc_id}/visualizations")
 def list_visualizations(
     doc_id: int,
+    request: Request,                        # <<-- moved before defaulted deps
     current_user: Person = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     """
-    Return any generated visuals for this document.
+    Return any generated visuals (timelines, PDFs) for this document.
     """
     doc = db.get(Document, doc_id)
     if not doc:
-        raise HTTPException(404, "Document not found")
+        raise HTTPException(status_code=404, detail="Document not found")
 
-    vizs = db.query(Visualization).filter_by(document_id=doc_id).all()
-    return [
-        {
+    items = []
+    for v in db.query(Visualization).filter_by(document_id=doc_id).all():
+        fp = v.file_path.replace("\\", "/")
+        if fp.startswith("static/"):
+            # served under /static
+            url = f"/{fp}"
+        else:
+            # PDFs are served under /pdfs
+            name = os.path.basename(fp)
+            url = f"/pdfs/{name}"
+        items.append({
             "id": v.id,
             "type": v.type,
-            "file_path": v.file_path.replace("\\", "/")
-        }
-        for v in vizs
-    ]
+            "file_path": url
+        })
+    return items
