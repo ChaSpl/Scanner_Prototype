@@ -45,7 +45,7 @@ export default function Dashboard() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // — 1) Load current user
+  // 1) Load current user
   useEffect(() => {
     if (!auth.token) {
       navigate('/login');
@@ -59,7 +59,7 @@ export default function Dashboard() {
       });
   }, [auth, navigate]);
 
-  // — 2) Upload handler
+  // 2) Handle file selection & upload
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFile(e.target.files?.[0] ?? null);
   };
@@ -83,45 +83,42 @@ export default function Dashboard() {
     }
   };
 
-  // — 3) Poll for status: pending → parsed → complete
+  // 3) Poll for status until 'complete' or 'error'
   useEffect(() => {
     if (!docId) return;
-    const interval = setInterval(async () => {
+    const iv = setInterval(async () => {
       try {
         const res = await api.get<DocumentStatus>(`/documents/${docId}`);
         setDocStatus(res.data.status);
-
-        // Stop polling once complete
         if (res.data.status === 'complete' || res.data.status === 'error') {
-          clearInterval(interval);
+          clearInterval(iv);
           setUploading(false);
         }
-      } catch (err) {
-        console.error('Status poll failed', err);
+      } catch {
         setError('Failed to fetch status.');
       }
     }, 2000);
-    return () => clearInterval(interval);
+    return () => clearInterval(iv);
   }, [docId]);
 
-  // — 4) Once complete, fetch visualizations
+  // 4) Once complete, fetch visualizations (first PDF, first timeline)
   useEffect(() => {
     if (docStatus !== 'complete') return;
-    const interval = setInterval(async () => {
+    const iv = setInterval(async () => {
       try {
         const res = await api.get<Viz[]>(`/documents/${docId}/visualizations`);
         if (res.data.length > 0) {
           setVisualizations(res.data);
-          clearInterval(interval);
+          clearInterval(iv);
         }
       } catch {
-        // keep retrying
+        // retry
       }
     }, 2000);
-    return () => clearInterval(interval);
+    return () => clearInterval(iv);
   }, [docStatus, docId]);
 
-  // — Redirect if not logged in / not loaded
+  // redirect if not loaded
   if (!user) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -129,6 +126,10 @@ export default function Dashboard() {
       </div>
     );
   }
+
+  // find exactly one of each
+  const pdfViz = visualizations.find(v => v.type === 'pdf');
+  const timelineViz = visualizations.find(v => v.type === 'timeline');
 
   return (
     <main className="min-h-screen p-8 bg-gray-50 text-gray-800">
@@ -173,37 +174,42 @@ export default function Dashboard() {
       </section>
 
       {/* Visualizations Section */}
-      {docStatus === 'complete' && visualizations.length > 0 && (
+      {docStatus === 'complete' && (pdfViz || timelineViz) && (
         <section className="bg-white p-6 rounded-lg shadow-md mb-6">
           <h2 className="text-xl font-semibold mb-2">Your Files</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {visualizations.map(v => (
-              <div key={v.id} className="border p-4 flex flex-col">
-                <p className="text-sm font-medium mb-2 capitalize">{v.type}</p>
-
-                {v.type === 'timeline' && (
-                  <img
-                    src={v.file_path}
-                    alt="Timeline"
-                    className="w-full h-auto mb-2"
-                  />
-                )}
-
-                {v.type === 'pdf' && (
-                  <p className="mb-2 text-sm text-gray-600">
-                    Your parsed CV (PDF) is ready
-                  </p>
-                )}
-
+            {pdfViz && (
+              <div className="border p-4 flex flex-col">
+                <p className="text-sm font-medium mb-2">PDF</p>
+                <p className="mb-2 text-sm text-gray-600">
+                  Your parsed CV (PDF) is ready
+                </p>
                 <a
-                  href={v.file_path}
+                  href={pdfViz.file_path}
                   download
                   className="mt-auto text-blue-600 hover:underline"
                 >
-                  Download {v.type === 'timeline' ? 'Timeline' : 'PDF'}
+                  Download PDF
                 </a>
               </div>
-            ))}
+            )}
+            {timelineViz && (
+              <div className="border p-4 flex flex-col">
+                <p className="text-sm font-medium mb-2">Timeline</p>
+                <img
+                  src={timelineViz.file_path}
+                  alt="Timeline"
+                  className="w-full h-auto mb-2"
+                />
+                <a
+                  href={timelineViz.file_path}
+                  download
+                  className="mt-auto text-blue-600 hover:underline"
+                >
+                  Download Timeline
+                </a>
+              </div>
+            )}
           </div>
         </section>
       )}
